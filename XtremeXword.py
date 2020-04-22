@@ -21,22 +21,22 @@ combo2 = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'
 
 # words entered from first crossword
 # needs to match 2 words for win
-cross1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 'napkin', 'stack', 'mode', 'nut', 'mat',
+Grid1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 'napkin', 'stack', 'mode', 'nut', 'mat',
          'vesel', 'brass', 'swim', 'unit', 'aunt', 'domestic', 'explain', 'day', 'reckless', 'taxi', 'nsal']
 
 # words entered from second crossword
 # needs to match 2 words for win
-cross2 = ['dress', 'iron', 'diagonal', 'ear', 'fatigue', 'dimnish', 'axle', 'rack', 'entry', 'else', 'aide',
+Grid2 = ['dress', 'iron', 'diagonal', 'ear', 'fatigue', 'dimnish', 'axle', 'rack', 'entry', 'else', 'aide',
          'fiddle', 'rot', 'most', 'end', 'imaginary', 'degre', 'shake', 'nice', 'owl', 'salary', 'eye']
 
 # words entered from third crossword
 # needs to match 2 words for win
-cross3 = ['list', 'sum', 'express', 'dodge', 'own', 'legend', 'pod', 'stereo', 'amuse']
+Grid3 = ['list', 'sum', 'express', 'dodge', 'own', 'legend', 'pod', 'stereo', 'amuse']
 
 # word list with duplicates removed
-cross1set = ["".join(set(x)) for x in cross1]
-cross2set = ["".join(set(x)) for x in cross2]
-cross3set = ["".join(set(x)) for x in cross3]
+Grid1set = ["".join(set(x)) for x in Grid1]
+Grid2set = ["".join(set(x)) for x in Grid2]
+Grid3set = ["".join(set(x)) for x in Grid3]
 
 win = 0
 lose = 0
@@ -93,7 +93,7 @@ for i in combo2:
     combowin = 0
     combolose = 0
     
-    count = wordfinder(i, cross1set)
+    count = wordfinder(i, Grid1set)
     if count < 2:
         combolose += 1
     elif count == 2:
@@ -142,7 +142,7 @@ for i in combo2:
         combowinammount += 30000
         board1win += 1
 
-    count = wordfinder(i, cross2set)
+    count = wordfinder(i, Grid2set)
     if count < 2:
         combolose += 1
     elif count == 2:
@@ -191,7 +191,7 @@ for i in combo2:
         combowinammount += 300000
         board2win += 1
 
-    count = wordfinder(i, cross3set)
+    count = wordfinder(i, Grid3set)
     if count < 2:
         combolose += 1
     elif count == 2:
