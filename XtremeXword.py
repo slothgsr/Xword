@@ -1,6 +1,5 @@
 from itertools import combinations
 import time
-from collections import Counter
 
 #timer start
 tic = time.perf_counter()
