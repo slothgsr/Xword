@@ -4,11 +4,11 @@ import time
 #timer start
 tic = time.perf_counter()
 
-combo2 = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
                             's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 18))
 
 # Testing combos
-# combo2 = [('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r'),
+# combos = [('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r'),
 #           ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'p', 't', 'u', 'v', 'w'),
 #           ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'n', 'r', 't', 'v', 'w', 'z'),
 #           ('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 't', 'u', 'w', 'x', 'y', 'z'),
@@ -77,13 +77,13 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = setlist
 # percentage complete display
 percent = 0
 test = 0
-percent1= int(len(combo2)/100)
+percent1= int(len(combos)/100)
 percent100list=[]
 for i in range(100):
     percent100list.append(i * percent1)
 
-for i in combo2:
-    if test in percent100list:
+for i in combos:
+    if test in percent100list: # Progress bar
         percent += 1
         test += 1
         print(f'Computing: {percent}% finished', end='\r')
@@ -224,7 +224,7 @@ for i in combo2:
 
 
 print()
-print("Total combos checked " + str(len(combo2)))
+print("Total combos checked " + str(len(combos)))
 print("$10 wins = " + str(win10))
 print("$20 wins = " + str(win20))
 print("$30 wins = " + str(win30))
