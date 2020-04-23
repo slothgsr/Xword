@@ -5,7 +5,9 @@ import time
 tic = time.perf_counter()
 
 combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-                            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))
+                            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'],8))
+
+print(len(combos))
 
 # Testing combos
 # combos = [('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r'),
