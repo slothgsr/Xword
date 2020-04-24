@@ -4,33 +4,23 @@ import time
 #timer start
 tic = time.perf_counter()
 
+def wordfinder(arg1, arg2): #arg1 = combo set,  arg2 = Gridlist set
+    grid = arg2.copy()
+    for letter in arg1:
+        if len(grid) <=1:
+            break
+        remove = []
+        for word in grid:
+            if letter in word:
+                remove.add(word)             
+        for i in remove:
+            grid.remove(i)
+                
+    return len(grid)
+            
 combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-                            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))
+                            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))            
 
-# # Testing combos
-# combos = [('a', 'c', 'l', 'p', 'r', 't', 'y', 'z'),
-#         ('a', 'e', 'i', 'k', 'n', 'o', 'v', 'z'),
-#         ('a', 'd', 'h', 'i', 'q', 's', 'v', 'z'),
-#         ('c', 'd', 'l', 'n', 'o', 's', 'v', 'y'),
-#         ('a', 'b', 'f', 'h', 'i', 'j', 'r', 'y'),
-#         ('b', 'h', 'j', 'k', 's', 'w', 'x', 'z'),
-#         ('b', 'c', 'h', 'n', 'q', 'r', 's', 'z'),
-#         ('d', 'e', 'h', 'l', 'm', 't', 'v', 'x'),
-#         ('b', 'd', 'e', 'i', 'o', 'q', 's', 'x'),
-#         ('j', 'l', 'n', 'o', 'p', 'r', 's', 'w'),
-#         ('m', 'q', 'r', 's', 't', 'u', 'w', 'y'),
-#         ('c', 'g', 'h', 'j', 's', 'w', 'y', 'z'),
-#         ('a', 'j', 'm', 'n', 'v', 'w', 'x', 'z'),
-#         ('b', 'g', 'h', 'k', 'l', 'o', 's', 'x'),
-#         ('a', 'c', 'h', 'j', 'm', 'n', 'u', 'y'),
-#         ('c', 'f', 'h', 'l', 'm', 'p', 'r', 't'),
-#         ('c', 'g', 'h', 'i', 'l', 't', 'u', 'v'),
-#         ('a', 'd', 'i', 'l', 'o', 'p', 'r', 'z'),
-#         ('b', 'c', 'i', 'r', 'v', 'w', 'y', 'z'),
-#         ('b', 'e', 'h', 'i', 'l', 'o', 't', 'v')]
-
-# words entered from first crossword
-# needs to match 2 words for win
 Grid1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 'napkin', 'stack', 'mode', 'nut', 'mat',
          'vesel', 'brass', 'swim', 'unit', 'aunt', 'domestic', 'explain', 'day', 'reckless', 'taxi', 'nsal']
 
@@ -42,8 +32,7 @@ Grid2 = ['dress', 'iron', 'diagonal', 'ear', 'fatigue', 'dimnish', 'axle', 'rack
 # words entered from third crossword
 # needs to match 2 words for win
 Grid3 = ['list', 'sum', 'express', 'dodge', 'own', 'legend', 'pod', 'stereo', 'amuse']
-
-# word list with duplicates removed
+         
 Grid1set = ["".join(set(x)) for x in Grid1]
 Grid2set = ["".join(set(x)) for x in Grid2]
 Grid3set = ["".join(set(x)) for x in Grid3]
@@ -68,22 +57,6 @@ win10 = 0
 bonuswin = 0
 wintoomuch = 0
 
-
-
-# takes 64 seconds
-def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = setlist
-    words = 0
-    for word in arg2: # for each word in setlist
-        candidate = True
-        for letter in word:
-            if letter in arg1:
-                candidate = False
-                break
-        if candidate == True:
-            words += 1
-    return words
-
-
 # # percentage complete display
 # percent = 0
 # test = 0
@@ -91,6 +64,7 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = setlist
 # percent100list=[]
 # for i in range(100):
 #     percent100list.append(i * percent1)
+
 
 for i in combos:
     # if test in percent100list: # Progress bar
