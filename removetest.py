@@ -12,7 +12,7 @@ def wordfinder(arg1, arg2): #arg1 = combo set,  arg2 = Gridlist set
         remove = []
         for word in grid:
             if letter in word:
-                remove.add(word)             
+                remove.append(word)             
         for i in remove:
             grid.remove(i)
                 
