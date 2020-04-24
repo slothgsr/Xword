@@ -1,6 +1,6 @@
 def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
     grid = arg2.copy()
-    for letter in arg1:
+    for letter in sorted(arg1):
         if len(grid) <=1:
             break
         remove = []

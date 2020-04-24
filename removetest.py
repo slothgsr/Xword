@@ -5,8 +5,9 @@ import time
 tic = time.perf_counter()
 
 def wordfinder(arg1, arg2): #arg1 = combo set,  arg2 = Gridlist set
+    # my_order = 'eariotnslcudpmhgbfywkvxzjq' # would like to sort by this order 
     grid = arg2.copy()
-    for letter in arg1:
+    for letter in sorted(arg1):
         if len(grid) <=1:
             break
         remove = []
