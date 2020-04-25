@@ -1,3 +1,5 @@
+''' Skip the unused letters while in wordfinder'''
+
 from itertools import combinations
 import time
 import string
@@ -9,10 +11,10 @@ def wordfinder(arg1, arg2, arg3): #arg1 = combo,  arg2 = Gridlist
     counts=[]
     for grid in arg2:   
         for letter in arg1:
-            if letter in arg3:
-                continue
             if len(grid) <=1:
                 break
+            if letter in arg3:
+                continue
             remove = []
             for word in grid:
                 if letter in word:
