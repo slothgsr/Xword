@@ -77,13 +77,13 @@ win5 = 0
 bonuswin = 0
 wintoomuch = 0
 
-# percentage complete display
-percent = 0
-test = 0
-percent1= int(len(combos)/100)
-percent100list=[]
-for i in range(100):
-    percent100list.append(i * percent1)
+# # percentage complete display
+# percent = 0
+# test = 0
+# percent1= int(len(combos)/100)
+# percent100list=[]
+# for i in range(100):
+#     percent100list.append(i * percent1)
 
 
 letterdic = dict.fromkeys(string.ascii_lowercase, 0)
@@ -105,11 +105,11 @@ print(sorted_d)
 
 
 for i in combos:
-    if test in percent100list: # Progress bar
-        percent += 1
-        test += 1
-        print(f'Computing: {percent}% finished', end='\r')
-    test += 1
+    # if test in percent100list: # Progress bar
+    #     percent += 1
+    #     test += 1
+    #     print(f'Computing: {percent}% finished', end='\r')
+    # test += 1
 
     combowinammount = 0
     combowin = 0

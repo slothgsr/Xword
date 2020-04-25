@@ -19,7 +19,7 @@ def wordfinder(arg1, arg2): #arg1 = combo set,  arg2 = Gridlist set
                 
     return len(grid)
 
-# 62.71,64.95, 62.96
+# 62.71,64.95, 62.96, 64
 #combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))            
 
 #61.91, 61.8,61.93

@@ -1,3 +1,7 @@
+''' Removed the unused letters from all combos
+    before running through wordsearch'''
+
+
 from itertools import combinations
 import time
 import string
@@ -36,7 +40,7 @@ def checker():
     return combos
 
 # 49.56,49.37
-combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
+combos = (combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
 
 
 # question = input("would you like to check your ticet?")
@@ -78,12 +82,12 @@ bonuswin = 0
 wintoomuch = 0
 
 # percentage complete display
-percent = 0
-test = 0
-percent1= int(len(combos)/100)
-percent100list=[]
-for i in range(100):
-    percent100list.append(i * percent1)
+# percent = 0
+# test = 0
+# percent1= int(len(combos)/100)
+# percent100list=[]
+# for i in range(100):
+#     percent100list.append(i * percent1)
 
 
 letterdic = dict.fromkeys(string.ascii_lowercase, 0)
@@ -110,15 +114,17 @@ print(unused)
 # weird issue with this.  does not run all combos or something.
 #combo2 = ((ele for ele in sub if ele not in unused) for sub in combos)
 
-combo2 = [[ele for ele in sub if ele not in unused] for sub in combos]
+combo2 = ([ele for ele in sub if ele not in unused] for sub in combos)
+
 
 
 for i in combo2:
-    if test in percent100list: # Progress bar
-        percent += 1
-        test += 1
-        print(f'Computing: {percent}% finished', end='\r')
-    test += 1
+
+    # if test in percent100list: # Progress bar
+    #     percent += 1
+    #     test += 1
+    #     print(f'Computing: {percent}% finished', end='\r')
+    # test += 1
 
     combowinammount = 0
     combowin = 0
@@ -237,7 +243,7 @@ for i in combo2:
 
 
 print()
-print("Total combos checked " + str(len(combo2)))
+#rint("Total combos checked " + str(len(combo2)))
 print("$5 wins = " + str(win5))
 print("$10 wins = " + str(win10))
 print("$15 wins = " + str(win15))

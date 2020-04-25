@@ -5,7 +5,7 @@ import time
 tic = time.perf_counter()
 
 
-#53, 52.84 52.43
+#53.88, 52.84 52.43
 combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
 
 #57, 53.92, 56.39,54.13
