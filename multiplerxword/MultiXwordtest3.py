@@ -39,7 +39,7 @@ def combo_generator(Gridlist):
                 else:
                     letterdic[letter] = 1
     unused =[k for k,v in letterdic.items() if v == 0]
-    return unusded
+    return unused
 
 
 def checker():
