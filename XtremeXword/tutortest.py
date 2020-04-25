@@ -13,8 +13,8 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
     return len(grid)
             
             
-combos = [('a', 'c', 'l', 'p', 'r', 't', 'y', 'z'),
-        ('a', 'e', 'i', 'k', 'n', 'o', 'v', 'z')]
+combos = [('o', 't', 'l', 'u', 'p', 'm', 'f', 'z')
+        ('p', 'm', 'g', 'w', 'x', 'z', 'j', 'q')]
 
 Grid1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 
         'napkin', 'stack', 'mode', 'nut', 'mat', 'vesel',

@@ -18,9 +18,12 @@ def wordfinder(arg1, arg2): #arg1 = combo set,  arg2 = Gridlist set
             grid.remove(i)
                 
     return len(grid)
-            
-combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-                            's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))            
+
+# 62.71,64.95, 62.96
+#combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))            
+
+#61.91, 61.8,61.93
+combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))            
 
 Grid1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 'napkin', 'stack', 'mode', 'nut', 'mat',
          'vesel', 'brass', 'swim', 'unit', 'aunt', 'domestic', 'explain', 'day', 'reckless', 'taxi', 'nsal']

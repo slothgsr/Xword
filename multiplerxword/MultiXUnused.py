@@ -5,10 +5,12 @@ import string
 #timer start
 tic = time.perf_counter()
 
-def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
+def wordfinder(arg1, arg2, arg3): #arg1 = combo,  arg2 = Gridlist
     counts=[]
     for grid in arg2:   
         for letter in arg1:
+            if letter in arg3:
+                continue
             if len(grid) <=1:
                 break
             remove = []
@@ -18,7 +20,7 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
             for i in remove:
                 grid.remove(i)
         counts.append(len(grid))
-    return counts    
+    return counts   
 
 
 def checker():
@@ -35,7 +37,7 @@ def checker():
     print(combos)
     return combos
 
-#47.88,47.65,47.8
+# 48.22,48.93
 combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
 
 
@@ -103,6 +105,10 @@ for word in Grid2:
 sorted_d = sorted(((value, key) for (key,value) in letterdic.items()),reverse = True)
 print(sorted_d)
 
+unused =[k for k,v in letterdic.items() if v == 0]
+
+print(unused)
+
 
 for i in combos:
     if test in percent100list: # Progress bar
@@ -116,7 +122,7 @@ for i in combos:
     combolose = 0
     
     Gridlist= [Grid1set[:],Grid2set[:]]
-    count = wordfinder(i, Gridlist)
+    count = wordfinder(i, Gridlist,unused)
 
 
 

@@ -18,7 +18,7 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
             for i in remove:
                 grid.remove(i)
         counts.append(len(grid))
-    return counts    
+    return counts   
 
 
 def checker():
@@ -35,7 +35,7 @@ def checker():
     print(combos)
     return combos
 
-#47.88,47.65,47.8
+# 49.56,49.37
 combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
 
 
@@ -103,8 +103,17 @@ for word in Grid2:
 sorted_d = sorted(((value, key) for (key,value) in letterdic.items()),reverse = True)
 print(sorted_d)
 
+unused =[k for k,v in letterdic.items() if v == 0]
 
-for i in combos:
+print(unused)
+
+# weird issue with this.  does not run all combos or something.
+#combo2 = ((ele for ele in sub if ele not in unused) for sub in combos)
+
+combo2 = [[ele for ele in sub if ele not in unused] for sub in combos]
+
+
+for i in combo2:
     if test in percent100list: # Progress bar
         percent += 1
         test += 1
@@ -228,7 +237,7 @@ for i in combos:
 
 
 print()
-print("Total combos checked " + str(len(combos)))
+print("Total combos checked " + str(len(combo2)))
 print("$5 wins = " + str(win5))
 print("$10 wins = " + str(win10))
 print("$15 wins = " + str(win15))
