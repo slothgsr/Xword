@@ -119,6 +119,7 @@ combo2 = ([ele for ele in sub if ele not in unused] for sub in combos)
 
 
 for i in combo2:
+    print(i)
 
     # if test in percent100list: # Progress bar
     #     percent += 1

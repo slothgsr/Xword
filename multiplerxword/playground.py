@@ -20,51 +20,80 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
         counts.append(len(grid))
     return counts    
 
+def combo_generator(Gridlist):
+    letterdic = dict.fromkeys(string.ascii_lowercase, 0)
+    for grid in Gridlist:
+        for word in grid:
+            for letter in word:
+                if letter in letterdic:
+                    letterdic[letter] += 1
+                else:
+                    letterdic[letter] = 1
+    unused =[k for k,v in letterdic.items() if v == 0]
+    return unused
 
-def checker():
-    global combos
-    alph = 'abcdefghijklmnopqrstuvwxyz'
-    checker = input("enter your letters: ")
-    combo = ''
-    for i in alph:
-        if i in checker:
-            continue
-        else:
-            combo += i
-    combos = tuple([combo])
-    print(combos)
-    return combos
 
 # makes combos without the missing letters.  in testing phase
-combos1 = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 8))
+combos1 = list(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 8))
 print(len(combos1))
-combos2 = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 7))
+combos2 = list(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 7))
 print(len(combos2))
-combos3 = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 6))
+combos3 = list(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 6))
 print(len(combos3))
-
+combos4 = list(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z'], 5))
+print(len(combos4))
 combos= []
 
 combos.extend(combos1)
 combos.extend(combos2)
 combos.extend(combos3)
-
+combos.extend(combos4)
 print(len(combos))
 
-# question = input("would you like to check your ticet?")
-# if question.lower() == "y" or question.lower() == "yes":
-#     checker()
 
 Grid1 = ['timid', 'aside', 'substance', 'sign', 'oxen', 'able', 'one', 'afar', 'lap', 'kennel', 'else', 'oil', 
         'layout', 'sabotage', 'mob', 'snorkel', 'dot', 'argue', 'undo', 'sock', 'ballot', 'pineapple']
 
-# ords entered from second crossword
-# needs to match 2 words for win
 Grid2 = ['chef', 'haze', 'tweezers', 'once', 'astute', 'east', 'forecast', 'circus', 'iris', 'salute', 'gate', 
         'traffic', 'how', 'eat', 'rural', 'fee', 'use', 'court', 'here', 'something', 'epic', 'splint']
          
 Grid1set = ["".join(set(x)) for x in Grid1]
 Grid2set = ["".join(set(x)) for x in Grid2]
+
+Grids = [Grid1set,Grid2set]
+
+unused = combo_generator(Grids)
+
+print(unused)
+
+# letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z','j','q','v']
+
+# combos = list(combinations(letters, 8))
+
+# print('creating list of combos')
+# test=[]
+# for i in combos:
+#     test.append(list(i))
+
+# print("removing unused letters")
+# for i in test:
+#     for letter in unused:
+#         if letter in i:
+#             i.remove(letter)
+
+# for i in test:
+#     for letter in i:
+#         if letter in ['k', 'a', 'r', 'n', 'o', 'e','d']:
+#             Flag = True
+#         else:
+#             Flag = False
+#             break
+#     if Flag == True:
+#         print(i)
+
+
+# print(len(test))
+
 
 win = 0
 lose = 0
@@ -89,39 +118,9 @@ win5 = 0
 bonuswin = 0
 wintoomuch = 0
 
-# # percentage complete display
-# percent = 0
-# test = 0
-# percent1= int(len(combos)/100)
-# percent100list=[]
-# for i in range(100):
-#     percent100list.append(i * percent1)
 
-
-letterdic = dict.fromkeys(string.ascii_lowercase, 0)
-for word in Grid1:
-    for letter in word:
-        if letter in letterdic:
-            letterdic[letter] += 1
-        else:
-            letterdic[letter] = 1
-
-for word in Grid2:
-    for letter in word:
-        if letter in letterdic:
-            letterdic[letter] +=1
-        else:
-            letterdic[letter] = 1
-sorted_d = sorted(((value, key) for (key,value) in letterdic.items()),reverse = True)
-print(sorted_d)
-
-
+print("running now")
 for i in combos:
-    # if test in percent100list: # Progress bar
-    #     percent += 1
-    #     test += 1
-    #     print(f'Computing: {percent}% finished', end='\r')
-    # test += 1
 
     combowinammount = 0
     combowin = 0
@@ -265,10 +264,4 @@ print("won too much = " + str(wintoomuch))
 toc = time.perf_counter()
 
 print(f'Elapsed time : {toc - tic:0.4f} seconds')
-
-
-
-
-
-
 
