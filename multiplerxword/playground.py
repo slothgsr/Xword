@@ -75,7 +75,6 @@ test=[]
 for i in combos:
     test.append(list(i))
 
-print(test[2])
 print("removing unused letters")
 for i in test:
     for letter in unused:
