@@ -40,7 +40,7 @@ def checker():
     return combos
 
 # 49.56,49.37
-combos = (combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
+combos = combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8)
 
 
 # question = input("would you like to check your ticet?")
@@ -106,21 +106,30 @@ for word in Grid2:
             letterdic[letter] = 1
 sorted_d = sorted(((value, key) for (key,value) in letterdic.items()),reverse = True)
 print(sorted_d)
-
+print('creating unused list')
 unused =[k for k,v in letterdic.items() if v == 0]
 
 print(unused)
 
+# for i in combos:
+#     for letter in i:
+#         i.remove("v")
+#         i.remove("q")
+#         i.remove("j")
+    
+
+
+
 # weird issue with this.  does not run all combos or something.
 #combo2 = ((ele for ele in sub if ele not in unused) for sub in combos)
-
+print('removing unused from list of combos')
 combo2 = ([ele for ele in sub if ele not in unused] for sub in combos)
+print('running')
 
 
 
-for i in combo2:
-    print(i)
 
+for i in combos:
     # if test in percent100list: # Progress bar
     #     percent += 1
     #     test += 1

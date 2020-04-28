@@ -62,24 +62,25 @@ Grid2set = ["".join(set(x)) for x in Grid2]
 
 Grids = [Grid1set,Grid2set]
 
-unused = combo_generator(Grids)
+unused = set(combo_generator(Grids))
 
 print(unused)
 
-# letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z','j','q','v']
+letters = ['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'x', 'z','j','q','v']
 
-# combos = list(combinations(letters, 8))
+combos = combinations(letters, 8)
 
-# print('creating list of combos')
-# test=[]
-# for i in combos:
-#     test.append(list(i))
+print('creating list of combos')
+test=[]
+for i in combos:
+    test.append(list(i))
 
-# print("removing unused letters")
-# for i in test:
-#     for letter in unused:
-#         if letter in i:
-#             i.remove(letter)
+print(test[2])
+print("removing unused letters")
+for i in test:
+    for letter in unused:
+        if letter in i:
+            i.remove(letter)
 
 # for i in test:
 #     for letter in i:
@@ -120,7 +121,7 @@ wintoomuch = 0
 
 
 print("running now")
-for i in combos:
+for i in test:
 
     combowinammount = 0
     combowin = 0
@@ -239,7 +240,7 @@ for i in combos:
 
 
 print()
-print("Total combos checked " + str(len(combos)))
+#print("Total combos checked " + str(len(combos)))
 print("$5 wins = " + str(win5))
 print("$10 wins = " + str(win10))
 print("$15 wins = " + str(win15))

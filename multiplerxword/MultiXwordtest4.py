@@ -1,8 +1,6 @@
-''' made a combo generator function which
-    Removes the unused letters from all combos.
-    Then reduceing comobo length for each missing letter
-    then concatinating the combos together
-    '''
+'''Make combo list. convert to list.  remove unused, make list of sets'''
+
+
 
 
 from itertools import combinations
@@ -28,20 +26,6 @@ def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = Gridlist
     return counts   
 
 
-
-def combo_generator(Gridlist):
-    letterdic = dict.fromkeys(string.ascii_lowercase, 0)
-    for grid in Gridlist:
-        for word in grid:
-            for letter in word:
-                if letter in letterdic:
-                    letterdic[letter] += 1
-                else:
-                    letterdic[letter] = 1
-    unused =[k for k,v in letterdic.items() if v == 0]
-    return unused
-
-
 def checker():
     global combos
     alph = 'abcdefghijklmnopqrstuvwxyz'
@@ -57,7 +41,7 @@ def checker():
     return combos
 
 # 49.56,49.37
-combos = (combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
+#combos = combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8)
 
 
 # question = input("would you like to check your ticet?")
@@ -74,7 +58,6 @@ Grid2 = ['chef', 'haze', 'tweezers', 'once', 'astute', 'east', 'forecast', 'circ
          
 Grid1set = ["".join(set(x)) for x in Grid1]
 Grid2set = ["".join(set(x)) for x in Grid2]
-Gridlist =[Grid1set,Grid2set]
 
 win = 0
 lose = 0
@@ -108,18 +91,40 @@ wintoomuch = 0
 #     percent100list.append(i * percent1)
 
 
+letterdic = dict.fromkeys(string.ascii_lowercase, 0)
+for word in Grid1:
+    for letter in word:
+        if letter in letterdic:
+            letterdic[letter] += 1
+        else:
+            letterdic[letter] = 1
+
+for word in Grid2:
+    for letter in word:
+        if letter in letterdic:
+            letterdic[letter] +=1
+        else:
+            letterdic[letter] = 1
+sorted_d = sorted(((value, key) for (key,value) in letterdic.items()),reverse = True)
+print(sorted_d)
+print('creating unused list')
+unused =[k for k,v in letterdic.items() if v == 0]
+
+print(unused)
+
+combos = combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8)
+print('converting combos to list')
+comblist = []
+for i in combos:
+    comblist.append(list(i))
+setlist=[]
+print('removing unused')
+for i in comblist:
+    setlist.append((set(i) - set(unused)))
+print('running')
 
 
-# weird issue with this.  does not run all combos or something.
-#combo2 = ((ele for ele in sub if ele not in unused) for sub in combos)
-
-unused = combo_generator(Gridlist)
-combo2 = ([ele for ele in sub if ele not in unused] for sub in combos)
-
-
-
-for i in combo2:
-
+for i in setlist:
     # if test in percent100list: # Progress bar
     #     percent += 1
     #     test += 1
