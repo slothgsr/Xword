@@ -14,7 +14,7 @@ def wordfinder(combo, gridlist, unused):
     counts=[]
     x = 0
     for grid in gridlist:   
-        for letter in combo:
+        for letter in set(combo):
             if len(grid) <=1:
                 break
             if letter in unused[x]:
@@ -79,9 +79,8 @@ Grid1set = ["".join(set(x)) for x in Grid1]
 Grid2set = ["".join(set(x)) for x in Grid2]
 
 Gridlist = [Grid1set,Grid2set]
-
-
 unused = unused_generator(Gridlist)
+
 print(unused)
 
 win = 0
