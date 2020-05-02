@@ -1,8 +1,6 @@
+# 58 seconds
+
 '''Make combo list. convert to list.  remove unused, make list of sets'''
-
-
-
-
 from itertools import combinations
 import time
 import string
