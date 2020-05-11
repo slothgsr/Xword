@@ -1,4 +1,4 @@
-string = 'e a t s o l i r n u c p f h g b d m k z w y x v q j'
+string = 'assume syrup gib den cheese zinc spy ridge expense'
 li = list(string.split(" "))
 
 print(li)

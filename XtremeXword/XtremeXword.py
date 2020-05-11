@@ -1,43 +1,33 @@
 from itertools import combinations
 import time
 
+def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = setlist
+    words = 0
+    for word in arg2: # for each word in setlist
+        candidate = True
+        for letter in word:
+            if letter in arg1:
+                candidate = False
+                break
+        if candidate == True:
+            words += 1
+    return words
+
+
 #timer start
 tic = time.perf_counter()
 
-
-#53.88, 52.84 52.43
+# creating 8 letter combinations
 combos = set(combinations(['e', 'a', 'r', 'i', 'o', 't', 'n', 's', 'l', 'c', 'u', 'd', 'p', 'm', 'h', 'g', 'b', 'f', 'y', 'w', 'k', 'v', 'x', 'z', 'j', 'q'], 8))
 
-#57, 53.92, 56.39,54.13
-#combos = set(combinations(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r','s', 't', 'u', 'v', 'w', 'x', 'y', 'z'], 8))
+# Words from each grid,  Need to automate this with OCR!!
+Grid1 = ['adore', 'once', 'deer', 'dark', 'allocate', 'sweater', 'air', 'ininite', 'oven', 'fence', 'always',\
+         'ahoy', 'oval', 'ear', 'ink', 'education', 'rlief', 'order', 'taxi', 'ram', 'elk', 'breeze']
 
-# # Testing combos
-# combos = [('o', 't', 'l', 'u', 'p', 'm', 'f', 'z')
-#         ('p', 'm', 'g', 'w', 'x', 'z', 'j', 'q')
-#         ('i', 't', 's', 'c', 'h', 'v', 'z', 'q')
-#         ('e', 'a', 'r', 'c', 'u', 'w', 'x', 'j')
-#         ('r', 'n', 'd', 'h', 'y', 'k', 'v', 'x')
-#         ('e', 'r', 'i', 'o', 't', 'm', 'f', 'k')
-#         ('e', 'r', 't', 's', 'c', 'd', 'm', 'z')
-#         ('e', 'a', 's', 'w', 'v', 'x', 'j', 'q')
-#         ('i', 't', 'u', 'd', 'p', 'm', 'b', 'j')
-#         ('e', 'r', 'o', 'n', 'l', 'c', 'g', 'z')
-#         ('i', 'n', 'u', 'p', 'w', 'v', 'z', 'j')
-#         ('e', 'r', 's', 'p', 'm', 'b', 'y', 'w')]
+Grid2 = ['ocen', 'amid', 'fragment', 'pie', 'essence', 'atlantic', 'flag', 'else', 'girl', 'range', 'office',\
+         'fog', 'owl', 'ahe', 'bagel', 'nimble', 'newspaper', 'rat', 'pen', 'town', 'idle', 'escape']
 
-# words entered from first crossword
-# needs to match 2 words for win
-Grid1 = ['bridge', 'date', 'atom', 'pry', 'rib', 'substance', 'napkin', 'stack', 'mode', 'nut', 'mat',
-         'vesel', 'brass', 'swim', 'unit', 'aunt', 'domestic', 'explain', 'day', 'reckless', 'taxi', 'nsal']
-
-# words entered from second crossword
-# needs to match 2 words for win
-Grid2 = ['dress', 'iron', 'diagonal', 'ear', 'fatigue', 'dimnish', 'axle', 'rack', 'entry', 'else', 'aide',
-         'fiddle', 'rot', 'most', 'end', 'imaginary', 'degre', 'shake', 'nice', 'owl', 'salary', 'eye']
-
-# words entered from third crossword
-# needs to match 2 words for win
-Grid3 = ['list', 'sum', 'express', 'dodge', 'own', 'legend', 'pod', 'stereo', 'amuse']
+Grid3 = ['assume', 'syrup', 'big', 'den', 'cheese', 'zinc', 'spy', 'ridge', 'expense']
 
 # word list with duplicates removed
 Grid1set = ["".join(set(x)) for x in Grid1]
@@ -58,48 +48,17 @@ win200 = 0
 win100 = 0
 win50 = 0
 win40 = 0
-win30 = 0
 win20 = 0
 win10 = 0
 bonuswin = 0
 wintoomuch = 0
 
-
-
-# takes 64 seconds
-def wordfinder(arg1, arg2): #arg1 = combo,  arg2 = setlist
-    words = 0
-    for word in arg2: # for each word in setlist
-        candidate = True
-        for letter in word:
-            if letter in arg1:
-                candidate = False
-                break
-        if candidate == True:
-            words += 1
-    return words
-
-
-# # percentage complete display
-# percent = 0
-# test = 0
-# percent1= int(len(combos)/100)
-# percent100list=[]
-# for i in range(100):
-#     percent100list.append(i * percent1)
-
 for i in combos:
-    # if test in percent100list: # Progress bar
-    #     percent += 1
-    #     test += 1
-    #     print(f'Computing: {percent}% finished', end='\r')
-    # test += 1
-
     combowinammount = 0
     combowin = 0
     combolose = 0
-    
     count = wordfinder(i, Grid1set)
+
     if count < 2:
         combolose += 1
     elif count == 2:
@@ -230,10 +189,15 @@ for i in combos:
 
 
 print()
+print("Grid1 = " + str(Grid1))
+print()
+print("Grid2 = " + str(Grid2))
+print()
+print("Grid3 = " + str(Grid3))
+print()
 print("Total combos checked " + str(len(combos)))
 print("$10 wins = " + str(win10))
 print("$20 wins = " + str(win20))
-print("$30 wins = " + str(win30))
 print("$40 wins = " + str(win40))
 print("$50 wins = " + str(win50))
 print("$100 wins = " + str(win100))

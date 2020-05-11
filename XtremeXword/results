@@ -1,0 +1,62 @@
+1433-014393-024
+
+LOSER
+
+Grid1 = ['attire', 'ovl', 'definite', 'rim', 'pigment', 'register', 'iron', 'once', 'linen', 'fod', 'tour', 'parcel', 'mug', 'grin', 'old', 'extension', 'thirst', 'brief', 'inch', 'zoo', 'event', 'nod']
+
+Grid2 = ['offer', 'cable', 'glcial', 'even', 'car', 'adult', 'aid', 'edge', 'trolley', 'frost', 'trace', 'other', 'ajar', 'face', 'nautilus', 'lecture', 'yet', 'accurate', 'data', 'amid', 'vege']
+
+Grid3 = ['new', 'tattoo', 'duplex', 'habitat', 'gate', 'thumb', 'nut', 'let', 'whose']
+
+Total combos checked 1562275
+$10 wins = 720661
+$20 wins = 693755
+$40 wins = 237200
+$50 wins = 384090
+$100 wins = 491119
+$200 wins = 158589
+$400 wins = 115369
+$500 wins = 135746
+$1000 wins = 175683
+$10000 wins = 121667
+$30000 wins = 143005
+$300000 wins = 93594
+board1 wins = 1337029
+board2 wins = 2133449
+winning combos =1434637
+losing combos = 127638
+won too much = 93468
+Elapsed time : 57.6429 seconds
+
+
+
+
+1433-0143493-023
+
+LOSER
+
+Grid1 = ['adore', 'once', 'deer', 'dark', 'allocate', 'sweater', 'air', 'ininite', 'oven', 'fence', 'always', 'ahoy', 'oval', 'ear', 'ink', 'education', 'rlief', 'order', 'taxi', 'ram', 'elk', 'breeze']
+
+Grid2 = ['ocen', 'amid', 'fragment', 'pie', 'essence', 'atlantic', 'flag', 'else', 'girl', 'range', 'office', 'fog', 'owl', 'ahe', 'bagel', 'nimble', 'newspaper', 'rat', 'pen', 'town', 'idle', 'escape']
+
+Grid3 = ['assume', 'syrup', 'big', 'den', 'cheese', 'zinc', 'spy', 'ridge', 'expense']
+
+Total combos checked 1562275
+$10 wins = 794260
+$20 wins = 715268
+$40 wins = 210004
+$50 wins = 340687
+$100 wins = 413377
+$200 wins = 122002
+$400 wins = 99193
+$500 wins = 152937
+$1000 wins = 201605
+$10000 wins = 152054
+$30000 wins = 185710
+$300000 wins = 81057
+board1 wins = 1273585
+board2 wins = 2194569
+winning combos =1411149
+losing combos = 151126
+won too much = 81035
+Elapsed time : 59.7944 seconds
